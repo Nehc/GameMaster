@@ -1,0 +1,7 @@
+googletrans==3.1.0a0
+pyTelegramBotAPI
+reportlab
+shortuuid
+requests
+openai
+vedis
