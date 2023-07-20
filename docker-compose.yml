@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  game_master:
+    image: nehcy/game_master
+    container_name: translator
+    build: .
+    environment:
+      - TG_TOKEN=<PLACE_YOUR_TGBOT_TOKEHN_THERE>
+      - OPENAI_KEY=<YOUR_OPEN_AI_KEY>
+    command: python main.py
+    init: true
+    restart: always
+    stdin_open: true    
+    network_mode: bridge
+    tty: true
