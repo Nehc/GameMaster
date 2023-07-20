@@ -1,2 +1,2 @@
 # GameMaster
-Roleplay telegram game with ChatGPT backbone
+Roleplay telegram game engine with ChatGPT backbone
