@@ -44,7 +44,8 @@ def apply_first_arg(func, first_arg):
         return func(first_arg, *args, **kwargs)
     return wrapper
 
-chat = ChatGPT(api_key, '192.168.1.200:3128')
+PROXY = '192.168.1.200:3128' # you must set proxy there... 
+chat = ChatGPT(api_key, PROXY)
 bot = telebot.TeleBot(token)
 translator = Translator()
 
