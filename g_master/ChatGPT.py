@@ -8,7 +8,7 @@ class ChatGPT:
     def recursive_API_call(self, prompt):
         try:
             openai.api_key = self.api_key 
-            openai.proxy = self.proxy
+            if self.proxy: openai.proxy = self.proxy
             ans = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo",
                 messages= prompt

@@ -1,13 +1,15 @@
-import requests, base64
+import os, requests, base64
+
+sd_url = os.getenv('TG_TOKEN')
 
 def gen_image(prompt,extra={}):
-  '''
-  https://github.com/AUTOMATIC1111/stable-diffusion-webui
-  must be on http://devbox:7860, or change requests URL
-  '''
+    '''
+    https://github.com/AUTOMATIC1111/stable-diffusion-webui
+    must be on http://devbox:7860, or change URL in sd_url
+    '''
     payload = { "prompt": prompt, "steps": 20 }
     payload.update(extra)
-    response = requests.post(url=f'http://devbox:7860/sdapi/v1/txt2img', json=payload)
+    response = requests.post(url=f'{sd_url}/sdapi/v1/txt2img', json=payload)
     if response.status_code != 200:
         print( "Non-200 response: " + str(response.text))
         #bot.send_message(chat_id, "Non-200 response: " + str(response.text))

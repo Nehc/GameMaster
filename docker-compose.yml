@@ -5,8 +5,11 @@ services:
     container_name: GameMaster
     build: .
     environment:
-      - TG_TOKEN=<PLACE_YOUR_TGBOT_TOKEHN_THERE>
-      - OPENAI_KEY=<YOUR_OPEN_AI_KEY>
+      - TG_TOKEN=${TG_TOKEN}
+      - OPENAI_KEY=${OPENAI_KEY}
+      - OPENAI_PROXY=${OPENAI_PROXY}
+      - OPENAI_TIMER=${OPENAI_TIMER}
+      - SD_URL=${SD_URL}
     command: python main.py
     init: true
     restart: always

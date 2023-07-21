@@ -1,4 +1,4 @@
-import os, sys, threading, time
+import os, threading, time
 from collections import deque
 import re, json, shortuuid 
 
@@ -15,32 +15,21 @@ from prompts import Gens, SD_Gens
 from ChatGPT import ChatGPT
 from SD_api import gen_image
 
-#while True:
-#    time.sleep(1)
-
-PROXY = '192.168.1.200:3128' # you must set proxy there... 
-chat = ChatGPT(api_key, PROXY)
-
-TIMER = 20 
-
 q = deque()
 print('inits OK...')
 
-if len(sys.argv)>1:
-    token = sys.argv[1]
-else:
-    token = os.getenv('TG_TOKEN')
-    if not token: 
-        print('bot token needed...')
-        quit()
+token = os.getenv('TG_TOKEN')
+if not token: 
+    print('bot token needed...')
+    quit()
 
-if len(sys.argv)>2:
-    api_key = sys.argv[2]
-else:
-    api_key = os.getenv('OPENAI_KEY')
-    if not api_key: 
-        print('openai api_key needed...')
-        quit()
+api_key = os.getenv('OPENAI_KEY')
+if not api_key: 
+    print('openai api_key needed...')
+    quit()
+
+chat = ChatGPT(api_key, os.getenv('OPENAI_PROXY'))
+TIMER = int(os.getenv('OPENAI_TIMER', '20')) 
 
 def apply_first_arg(func, first_arg):
     def wrapper(*args, **kwargs):
