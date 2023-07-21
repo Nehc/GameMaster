@@ -9,5 +9,6 @@ Roleplay telegram game engine with ChatGPT backbone
 
 4. You has PROXY in local (or external) and set it URL in PROXY variable in [**g_master/main.py**](https://github.com/Nehc/GameMaster/blob/main/g_master/main.py)
 
-UPD: All parameters now set in [**docker-compose.yml**](https://github.com/Nehc/GameMaster/blob/main/docker-compose.yml) or **.env**. PROXY is optinal. 
+#### UPD: 
+All parameters now set in [**docker-compose.yml**](https://github.com/Nehc/GameMaster/blob/main/docker-compose.yml) or **.env**. PROXY is optinal. 
  
