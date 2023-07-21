@@ -32,7 +32,7 @@ ENV PATH="$PATH:/home/wald/.local/bin"
 COPY requirements.txt ./
 
 RUN python -m pip install --upgrade pip wheel && \
-    pip install -r requirements.txt && \
+    pip install --user -r requirements.txt && \
     python -m pip cache purge
 
 WORKDIR "./${NB_DIR}"
