@@ -35,9 +35,9 @@ RUN python -m pip install --upgrade pip wheel && \
     pip install --user -r requirements.txt && \
     python -m pip cache purge
 
-COPY ./g_master/ ./ 
-
 WORKDIR "./${NB_DIR}"
+
+COPY ./g_master/ ./ 
 
 ARG TG_TOKEN=""
 ENV TG_TOKEN="${TG_TOKEN}" 
